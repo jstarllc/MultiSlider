@@ -267,7 +267,11 @@ extension MultiSlider {
                 containerView.constrain(marker, at: .centerY, to: containerView, at: .top)
             }
         }
-        UIView.animate(withDuration: 0.1) {
+        if thumbAnimationDuration > 0.0 {
+            UIView.animate(withDuration: thumbAnimationDuration) {
+                containerView.updateConstraintsIfNeeded()
+            }
+        } else {
             containerView.updateConstraintsIfNeeded()
         }
     }

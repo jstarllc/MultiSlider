@@ -40,9 +40,14 @@ extension MultiSlider: UIGestureRecognizerDelegate {
         // change corresponding value
         updateDraggedThumbValue(relativeValue: targetPosition / slideViewLength)
 
-        UIView.animate(withDuration: 0.1) {
-            self.updateDraggedThumbPositionAndLabel()
-            self.layoutIfNeeded()
+        if thumbAnimationDuration > 0.0 {
+            UIView.animate(withDuration: thumbAnimationDuration) {
+                self.updateDraggedThumbPositionAndLabel()
+                self.layoutIfNeeded()
+            }
+        } else {
+            updateDraggedThumbPositionAndLabel()
+            layoutIfNeeded()
         }
     }
 

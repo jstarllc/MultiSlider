@@ -304,6 +304,10 @@ open class MultiSlider: UIControl {
             setupTrackLayoutMargins()
         }
     }
+    
+    /// If greater than 0.0, add a slight animation delay when moving thumb to new position.
+    /// If set to 0.0, the thumb tracks the touch movement exactly.
+    @IBInspectable public dynamic var thumbAnimationDuration: CGFloat = 0.1
 
     // MARK: - Subviews
 
