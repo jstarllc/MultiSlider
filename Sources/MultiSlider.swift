@@ -323,7 +323,7 @@ open class MultiSlider: UIControl {
     @objc open var trackView = UIView()
     @objc open var snapViews: [UIImageView] = []
     @objc open var outerTrackViews: [UIView] = []
-    @objc open var innerTrackView: UIView()
+    @objc open var innerTrackView = UIView()
     @objc open var minimumView = UIImageView()
     @objc open var maximumView = UIImageView()
 
