@@ -143,6 +143,7 @@ extension MultiSlider {
             // bottom of track to first thumb
             guard let firstThumb = thumbViews.first else { break }
             innerTrackView = outerTrackView(constraining: .top(in: orientation), to: firstThumb)
+            innerTrackView.backgroundColor = innerTrackColor
         case 2...:
             // last thumb to first thumb
             guard let firstThumb = thumbViews.first, let lastThumb = thumbViews.last else { break }
