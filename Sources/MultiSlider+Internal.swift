@@ -142,21 +142,23 @@ extension MultiSlider {
         case 1:
             // bottom of track to first thumb
             guard let firstThumb = thumbViews.first else { break }
-            innerTrackView = [outerTrackView(constraining: .top(in: orientation), to: firstThumb)]
+            innerTrackView = outerTrackView(constraining: .top(in: orientation), to: firstThumb)
         case 2...:
             // last thumb to first thumb
             guard let firstThumb = thumbViews.first, let lastThumb = thumbViews.last else { break }
             let view = UIView()
             view.backgroundColor = innerTrackColor
             trackView.addConstrainedSubview(view, constrain: .top, .bottom, .left, .right)
-            let constrainingBottom = .bottom(in: orientation)
+            let constrainingBottom: NSLayoutConstraint.Attribute = .bottom(in: orientation)
             trackView.removeFirstConstraint { $0.firstItem === view && $0.firstAttribute == constrainingBottom }
             trackView.constrain(view, at: constrainingBottom, to: firstThumb, at: .center(in: orientation))
-            let constrainingTop = .top(in: orientation)
+            let constrainingTop: NSLayoutConstraint.Attribute = .top(in: orientation)
             trackView.removeFirstConstraint { $0.firstItem === view && $0.firstAttribute == constrainingTop }
             trackView.constrain(view, at: constrainingTop, to: lastThumb, at: .center(in: orientation))
             trackView.sendSubviewToBack(view)
             innerTrackView = view
+        default:
+            break
         }
     }
 
