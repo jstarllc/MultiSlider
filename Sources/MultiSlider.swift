@@ -232,6 +232,13 @@ open class MultiSlider: UIControl {
             updateOuterTrackViews()
         }
     }
+    
+    /// track color between first thumb and last thumb. `nil` means to use the tintColor, like the rest of the track.
+    @IBInspectable open dynamic var innerTrackColor: UIColor? {
+        didSet {
+            updateInnerTrackView()
+        }
+    }
 
     @IBInspectable public dynamic var thumbTintColor: UIColor? {
         didSet {
@@ -316,6 +323,7 @@ open class MultiSlider: UIControl {
     @objc open var trackView = UIView()
     @objc open var snapViews: [UIImageView] = []
     @objc open var outerTrackViews: [UIView] = []
+    @objc open var innerTrackView: UIView()
     @objc open var minimumView = UIImageView()
     @objc open var maximumView = UIImageView()
 
